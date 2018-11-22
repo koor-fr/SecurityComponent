@@ -18,12 +18,8 @@ namespace fr::koor::security {
 	/**
 	 * <p>
 	 *     This security manager (see interface fr.koor.security.SercurityManager)  use a relational database to store the security informations.
-	 *     Actually two relational database management systems (also known as RDBMS) are supported : Apache Derby ou Sun MySql. In future versions, other RDBMS
-	 * 	   will be supported. The JDBC API is used by this implementation to provide RDBMS access.
-	 * </p>
-	 *
-	 * <p>
-	 *     To specify the used RDBMS, you must pass a data source that describe the JDBC connection. A data source is defined by the JdbcSecurityManager.DataSource.
+	 *     Actually two relational database management systems (also known as RDBMS) are supported : Apache Derby or Maria DB. In future versions, other RDBMS
+	 * 	   will be supported. The Qt API is used by this implementation to provide RDBMS access.
 	 * </p>
 	 *
 	 * @see fr.koor.security.SecurityManager
@@ -43,7 +39,18 @@ namespace fr::koor::security {
 		std::string password;
 
 	public:
+		/**
+		 * Class constructor.
+		 * @param hostname	The hostname or the ip address of the RDBMS.
+		 * @param database	The name of the used database.
+		 * @param login		The login used to establish the connection.
+		 * @param password  The login password to establish the connection.
+		 */
 		SqlSecurityManager( const std::string & hostname, const std::string & database, const std::string & login, const std::string & password );
+
+		/**
+		 * Class destructor.
+		 */
 		virtual ~SqlSecurityManager();
 
 		/**

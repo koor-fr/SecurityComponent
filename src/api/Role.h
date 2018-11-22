@@ -87,6 +87,11 @@ namespace fr::koor::security {
 			this->roleName = newRoleName;
 		}
 
+		/**
+		 * Compare two role instances.
+		 * @param otherRole The second role object to compare.
+		 * @return true if the two objects are equals.
+		 */
 		bool operator==( const Role & otherRole ) const;
 	};
 
