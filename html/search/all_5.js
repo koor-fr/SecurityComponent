@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['getconnectionnumber',['getConnectionNumber',['../classfr_1_1koor_1_1security_1_1User.html#ad16b9f2bd39b98323280101cd17bedf7',1,'fr::koor::security::User']]],
+  ['getconsecutiveerrors',['getConsecutiveErrors',['../classfr_1_1koor_1_1security_1_1User.html#a62552b66005661a1383a4c28dd6b5911',1,'fr::koor::security::User']]],
+  ['getemail',['getEmail',['../classfr_1_1koor_1_1security_1_1User.html#ae8edbd41b78406ab468a20a20416f14c',1,'fr::koor::security::User']]],
+  ['getfirstname',['getFirstName',['../classfr_1_1koor_1_1security_1_1User.html#a62889fda10bdb393ec55670e028dbe4d',1,'fr::koor::security::User']]],
+  ['getfullname',['getFullName',['../classfr_1_1koor_1_1security_1_1User.html#a41aaa8d1f105ff225353dfe895306fde',1,'fr::koor::security::User']]],
+  ['getidentifier',['getIdentifier',['../classfr_1_1koor_1_1security_1_1Role.html#a4e303bf6bfe17c8694c49500836bb2bb',1,'fr::koor::security::Role::getIdentifier()'],['../classfr_1_1koor_1_1security_1_1User.html#a8dcc176c7f795ceca4a2e0a6f1a76928',1,'fr::koor::security::User::getIdentifier()']]],
+  ['getlastconnection',['getLastConnection',['../classfr_1_1koor_1_1security_1_1User.html#af10241caa5e1f518c62aa25eb131dff4',1,'fr::koor::security::User']]],
+  ['getlastname',['getLastName',['../classfr_1_1koor_1_1security_1_1User.html#a10a0fc61c9c63d3ef4ae369eedba4381',1,'fr::koor::security::User']]],
+  ['getlogin',['getLogin',['../classfr_1_1koor_1_1security_1_1User.html#a9ab806f3d63208af5668c8df30db2462',1,'fr::koor::security::User']]],
+  ['getrolemanager',['getRoleManager',['../classfr_1_1koor_1_1security_1_1SecurityManager.html#a871aca8f5956c724805d86f413fecfff',1,'fr::koor::security::SecurityManager::getRoleManager()'],['../classfr_1_1koor_1_1security_1_1SqlSecurityManager.html#a0be10f39b0718c1cfe57a67c43243a9e',1,'fr::koor::security::SqlSecurityManager::getRoleManager()']]],
+  ['getrolename',['getRoleName',['../classfr_1_1koor_1_1security_1_1Role.html#a1236366b493ba31a9bffbc20d39833b9',1,'fr::koor::security::Role']]],
+  ['getroles',['getRoles',['../classfr_1_1koor_1_1security_1_1User.html#ae2c7553a3b441781a89557dbb6dbf55b',1,'fr::koor::security::User']]],
+  ['getuserbyid',['getUserById',['../classfr_1_1koor_1_1security_1_1UserManager.html#a7899442bb372a17f869ae816eff7e69d',1,'fr::koor::security::UserManager']]],
+  ['getuserbylogin',['getUserByLogin',['../classfr_1_1koor_1_1security_1_1UserManager.html#aa066051f8027a9d390e76294204a11b2',1,'fr::koor::security::UserManager']]],
+  ['getusermanager',['getUserManager',['../classfr_1_1koor_1_1security_1_1SecurityManager.html#a60f9f395c43ffea02ba77b89aa005c2c',1,'fr::koor::security::SecurityManager::getUserManager()'],['../classfr_1_1koor_1_1security_1_1SqlSecurityManager.html#a9e26103c898f8c8c57d702a3c714d80c',1,'fr::koor::security::SqlSecurityManager::getUserManager()']]],
+  ['getusersbyrole',['getUsersByRole',['../classfr_1_1koor_1_1security_1_1UserManager.html#aef2bd206adf11bfb29f0f6c0e79245c9',1,'fr::koor::security::UserManager']]]
+];

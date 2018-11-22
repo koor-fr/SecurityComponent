@@ -1,0 +1,30 @@
+        -:    0:Source:../src/SecurityComponent.cpp
+        -:    0:Graph:src/SecurityComponent.gcno
+        -:    0:Data:src/SecurityComponent.gcda
+        -:    0:Runs:2
+        -:    0:Programs:1
+        -:    1:#include <iostream>
+        -:    2:using namespace std;
+        -:    3:
+        -:    4:#include "impl/SqlSecurityManager.h"
+        -:    5:
+        -:    6:using namespace fr::koor::security;
+        -:    7:
+        2:    8:int main() {
+        -:    9:
+        6:   10:	SecurityManagerPtr securityManager( new SqlSecurityManager( "localhost", "SecurityComponent", "root", "" ) );
+        -:   11:
+        2:   12:	securityManager->openSession();
+        -:   13:
+        4:   14:	RoleManagerPtr roleManager = securityManager->getRoleManager();
+        4:   15:	RolePtr role = roleManager->selectRoleById( 1 );				// 1 - admin
+        -:   16:
+        4:   17:	UserManagerPtr userManager = securityManager->getUserManager();
+        4:   18:	UserPtr user = userManager->checkCredentials( "bond", "007" );
+        -:   19:
+        2:   20:	securityManager->close();
+        -:   21:
+        2:   22:	cout << "Bye bye" << endl;
+        -:   23:
+        2:   24:	return 0;
+        -:   25:}
