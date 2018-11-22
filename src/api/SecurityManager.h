@@ -182,7 +182,7 @@ namespace fr::koor::security {
 		 *            Thrown if the searched user don't exists.
 		 *
 		 * @see #checkCredentials(const std::string &,const std::string &)
-		 * @see #getUserById(int) const
+		 * @see #getUserById(uint) const
 		 */
 		virtual UserPtr getUserByLogin( const std::string & login ) const = 0;
 
@@ -196,7 +196,7 @@ namespace fr::koor::security {
 		 *            Thrown when the search can't finish.
 		 *
 		 * @see #checkCredentials(const std::string &,const std::string &)
-		 * @see #getUserById(int) const
+		 * @see #getUserById(uint) const
 		 * @see #getUserByLogin(const std::string &) const
 		 */
 		virtual std::vector<UserPtr> getUsersByRole( RolePtr role ) const = 0;
