@@ -28,7 +28,7 @@ protected:
 TEST_F( SecurityComponent, LoginSuccess ) {
 	// On lance le scénario
 	UserManagerPtr userManager = securityManager->getUserManager();
-	UserPtr user = userManager->checkCredentials( "bond", "007" );
+	UserPtr user = userManager->checkCredentials( "bond", "0071" );
 
 	// On vérifie les résultats
     EXPECT_EQ( user->getLogin(), "bond" );
