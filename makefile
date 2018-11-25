@@ -1,4 +1,5 @@
 all:
+	mkdir Debug
 	g++ -O0 -g3 -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -MMD -MP -MF"Debug/src/impl/SqlSecurityManager.d" -MT"Debug/src/impl/SqlSecurityManager.o" -o "Debug/src/impl/SqlSecurityManager.o" "src/impl/SqlSecurityManager.cpp"
 	g++ -O0 -g3 -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -MMD -MP -MF"Debug/src/api/Role.d" -MT"Debug/src/api/Role.o" -o "Debug/src/api/Role.o" "src/api/Role.cpp"
 	g++ -O0 -g3 -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -MMD -MP -MF"Debug/src/api/User.d" -MT"Debug/src/api/User.o" -o "Debug/src/api/User.o" "src/api/User.cpp"
