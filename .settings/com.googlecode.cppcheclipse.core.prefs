@@ -1,0 +1,5 @@
+checkInconclusive=true
+com.googlecode.cppcheclipse.ui.SettingsPreferencePage_useParentScope=false
+eclipse.preferences.version=1
+languageStandardC=c11
+languageStandardCpp=c++11
