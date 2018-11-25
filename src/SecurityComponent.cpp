@@ -1,23 +1,34 @@
+#include <gtest/gtest.h>
 #include <iostream>
-using namespace std;
+#include <QtSql/QSqlQuery>
 
 #include "impl/SqlSecurityManager.h"
 
+using namespace std;
 using namespace fr::koor::security;
 
 
-#include <gtest/gtest.h>
+class SecurityComponent : public ::testing::Test {
+protected:
+	SecurityManagerPtr securityManager;
 
-TEST( SecurityComponent, LoginSuccess ) {
-	// On monte un scénario
-	SecurityManagerPtr securityManager( new SqlSecurityManager( "localhost", "SecurityComponent", "root", "" ) );
-	securityManager->openSession();
+	void SetUp() override {
+		securityManager = SecurityManagerPtr( new SqlSecurityManager( "localhost", "SecurityComponent", "root", "" ) );
+		securityManager->openSession();
 
-	UserManagerPtr userManager = securityManager->getUserManager();
+		QSqlQuery query = QSqlQuery();
+		query.exec( "UPDATE T_USERS SET ConsecutiveError = 0, isDisabled=0" );
+	}
+
+	void TearDown() override {
+		securityManager->close();
+	}
+};
+
+TEST_F( SecurityComponent, LoginSuccess ) {
 	// On lance le scénario
+	UserManagerPtr userManager = securityManager->getUserManager();
 	UserPtr user = userManager->checkCredentials( "bond", "007" );
-
-	securityManager->close();
 
 	// On vérifie les résultats
     EXPECT_EQ( user->getLogin(), "bond" );
@@ -25,18 +36,12 @@ TEST( SecurityComponent, LoginSuccess ) {
     EXPECT_EQ( user->getRoles().size(), 0 );
 }
 
-TEST( SecurityComponent, LoginSuccessWithErrors ) {
-	// On monte un scénario
-	SecurityManagerPtr securityManager( new SqlSecurityManager( "localhost", "SecurityComponent", "root", "" ) );
-	securityManager->openSession();
-
-	UserManagerPtr userManager = securityManager->getUserManager();
+TEST_F( SecurityComponent, LoginSuccessWithErrors ) {
 	// On lance le scénario
+	UserManagerPtr userManager = securityManager->getUserManager();
 	try { userManager->checkCredentials( "bond", "008" ); } catch( exception & e ) {}
 	try { userManager->checkCredentials( "bond", "008" ); } catch( exception & e ) {}
 	UserPtr user = userManager->checkCredentials( "bond", "007" );
-
-	securityManager->close();
 
 	// On vérifie les résultats
     EXPECT_EQ( user->getLogin(), "bond" );
@@ -45,15 +50,24 @@ TEST( SecurityComponent, LoginSuccessWithErrors ) {
     EXPECT_EQ( user->getRoles().size(), 0 );
 }
 
-TEST( SecurityComponent, LoginFail ) {
-    EXPECT_THROW({
-    	SecurityManagerPtr securityManager( new SqlSecurityManager( "localhost", "SecurityComponent", "root", "" ) );
-		securityManager->openSession();
+TEST_F( SecurityComponent, AccountIsDisabled ) {
+	// On lance le scénario
+	UserManagerPtr userManager = securityManager->getUserManager();
+	try { userManager->checkCredentials( "bond", "008" ); } catch( exception & e ) {}
+	try { userManager->checkCredentials( "bond", "008" ); } catch( exception & e ) {}
+	try { userManager->checkCredentials( "bond", "008" ); } catch( exception & e ) {}
 
+	// On vérifie les résultats
+    EXPECT_THROW({
+		UserManagerPtr userManager = securityManager->getUserManager();
+		userManager->checkCredentials( "bond", "007" );
+    }, AccountDisabledException );
+}
+
+TEST_F( SecurityComponent, LoginFail ) {
+    EXPECT_THROW({
 		UserManagerPtr userManager = securityManager->getUserManager();
 		userManager->checkCredentials( "toto", "titi" );
-
-		securityManager->close();
     }, BadCredentialsException );
 }
 
