@@ -13,7 +13,7 @@ protected:
 	SecurityManagerPtr securityManager;
 
 	void SetUp() override {
-		securityManager = SecurityManagerPtr( new SqlSecurityManager( "localhost", "SecurityComponent", "root", "" ) );
+		securityManager = SecurityManagerPtr( new SqlSecurityManager( "localhost", "SecurityComponent", "webuser", "password" ) );
 		securityManager->openSession();
 
 		QSqlQuery query = QSqlQuery();
